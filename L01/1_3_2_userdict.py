@@ -6,8 +6,8 @@ from pyltp import Segmentor #导入ltp库
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-model_path = "E:\\ltp-data-v3.3.1\\cws.model" #ltp 3.3分词库模型
-user_dict = "E:\\ltp-data-v3.3.1\\fulluserdict.txt"  #外部专有名词词典路径
+model_path = "E:\\nlp\\ltp-data-v3.3.1\\cws.model" #ltp 3.3分词库模型
+user_dict = "E:\\nlp\\ltp-data-v3.3.1\\fulluserdict.txt"  #外部专有名词词典路径
 segmentor = Segmentor()
 
 #segmentor.load(model_path)

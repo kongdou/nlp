@@ -1,0 +1,1 @@
+在#P 包含#VV 问题#NN 的#DEC 所有#DT 解#VV 的#DEC 解空间树#NN 中#LC ，按照#NR 深度优化#VV 搜索#VV 的#DEC 策略#NN ，#PU 从#P 根节点#NN 出发#VV 深度#JJ 探索#NN 解空间树#VV

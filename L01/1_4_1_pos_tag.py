@@ -8,7 +8,7 @@ words = sent.split(" ")
 # 词性标注
 postagger = Postagger()
 #导入词性标注模型
-postagger.load("E:\\ltp-data-v3.3.1\\pos.model")
+postagger.load("E:\\nlp\\ltp-data-v3.3.1\\pos.model")
 
 postags = postagger.postag(words)
 
