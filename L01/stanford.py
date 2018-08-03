@@ -44,5 +44,8 @@ class StanfordPOSTagger(StanfordCoreNLP):
 	
 	def tagfile(self,inputpath,outpath):
 		os.system(self.cmdline+' -textFile '+inputpath+' > '+outpath )
+
+class stanfordNERTagger(StanfordCoreNLP):
+	def 
 		
 		
