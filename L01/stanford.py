@@ -1,13 +1,13 @@
-#encoding=utf-8
+# -*- encoding: utf-8 -*-
 #stanNLP
 import sys
 import os
-
+import code
 class StanfordCoreNLP():
 	def __init__(self,jarpath):
 		self.root = jarpath
 		self.tempsrcpath = "tempsrc" # temp path
-		self.jarlist = ["ejml-0.23.jar","javax.json.jar","jollyday.jar","joda-time.jar","protobuf.jar","slf4j-api.jar","slf4j-simple.jar","standford-corenlp-3.6.0.jar","xom.jar"]
+		self.jarlist = ["ejml-0.23.jar","javax.json.jar","jollyday.jar","joda-time.jar","protobuf.jar","slf4j-api.jar","slf4j-simple.jar","stanford-corenlp-3.6.0.jar","xom.jar"]
 		self.jarpath = ""
 		self.buildjars()
 	
@@ -32,11 +32,13 @@ class StanfordPOSTagger(StanfordCoreNLP):
 		self.__buildcmd()
 	
 	def __buildcmd(self): #bulid cmd
-		self.cmdline = 'java -mxlg -cp "'+self.jarpath+'" '+self.classfier+'-model "'+self.modelpath+'" -tagSeparator '+self.delimiter
+		self.cmdline = 'java -mx300m -cp "'+self.jarpath+'" '+self.classfier+' -model "'+self.modelpath+'" -tagSeparator '+self.delimiter
 	
 	def tag(self,sent): # tag 
 		self.savefile(self.tempsrcpath,sent)
+		#print self.tempsrcpath +"---"+code.coder(sent)
 		tagtxt = os.popen(self.cmdline+" -textFile "+self.tempsrcpath,'r').read() #result 
+		#print self.cmdline
 		self.delfile(self.tempsrcpath)
 		return tagtxt
 	

@@ -1,1 +1,0 @@
-java -mx300m -cp ".;E:\\standfordpostagger\\stanford-postagger.jar;E:\\standfordpostagger\\lib\\slf4j-api.jar;E:\\standfordpostagger\\lib\\slf4j-simple.jar" edu.stanford.nlp.tagger.maxent.MaxentTagger -model "E:\\standfordpostagger\\models\\chinese-distsim.tagger" -textFile postest.txt > result.txt
