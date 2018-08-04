@@ -45,7 +45,30 @@ class StanfordPOSTagger(StanfordCoreNLP):
 	def tagfile(self,inputpath,outpath):
 		os.system(self.cmdline+' -textFile '+inputpath+' > '+outpath )
 
-class stanfordNERTagger(StanfordCoreNLP):
-	def 
+class StanfordNERTagger(StanfordCoreNLP):
+	def __init__(self,modelpath,jarpath):
+		StanfordCoreNLP.__init__(self,jarpath)
+		self.modelpath = modelpath
+		self.classfier = "edu.stanford.nlp.ie.crf.CRFClassifier"
+		self._buildcmd()
+	
+	def _buildcmd(self):
+		self.cmdline = 'java -mx1g -cp "'+self.jarpath+'" '+self.classfier+ ' -loadClassifier "'+self.modelpath+'"'
+	
+	def tag(self,sent):
+		self.savefile(self.tempsrcpath,sent)
+		tagtax = os.popen(self.cmdline +'-textFile '+self.tempsrcpath,'r').read()
+		return tagtxt
+	
+	def tagfile(self,sent,outpath):
+		self.savefile(self.tempsrcpath,sent)
+		os.system(self.cmdline+' -textFile '+self.tempsrcpath+' > '+outpath)
+		self.delfile(self.tempsrcpath)
+		
+		
+		
+		
+	
+
 		
 		
