@@ -64,8 +64,29 @@ class StanfordNERTagger(StanfordCoreNLP):
 		self.savefile(self.tempsrcpath,sent)
 		os.system(self.cmdline+' -textFile '+self.tempsrcpath+' > '+outpath)
 		self.delfile(self.tempsrcpath)
+
+class StanfordParser(StanfordCoreNLP):
+	def __init__(self,modelpath,jarpath,opttype):
+		StanfordCoreNLP.__init__(self,jarpath)
+		self.modelpath = modelpath
+		self.classfier = 'edu.stanford.nlp.parser.lexparser.LexicalizedParser'
+		self.opttype = opttype
+		self._buildcmd()
 		
-		
+	def _buildcmd(self):
+		self.cmdline = 'java -mx500m -cp "'+self.jarpath+'" '+self.classfier+' -outputFormat "'+self.opttype+'" '+self.modelpath+' '
+	
+	# 句法分析结果
+	def parse(self,sent):
+		self.savefile(self.tempsrcpath,sent)
+		tagtxt = os.popen(self.cmdline+self.tempsrcpath,'r').read()
+		self.delfile(self.tempsrcpath)
+		return tagtxt
+	
+	def tagfile(self,sent):
+		self.savefile(self.tempsrcpath,sent)
+		os.system(self.cmdline+self.tempsrcpath +' > '+outpath)
+		self.delfile(self.tempsrcpath)
 		
 		
 	
