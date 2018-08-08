@@ -38,12 +38,14 @@ public class PipeLineDemo {
 
         //自定义功能(3)
         StanfordCoreNLP pipeline = new StanfordCoreNLP(PropertiesUtils.asProperties(
-                "annotators", "tokenize,ssplit",
+                "annotators", "tokenize,ssplit,pos,lemma,ner",
                 "ssplit.isOneSentence", "true",
                 "tokenize.language", "zh",
-                "segment.model", "edu/stanford/nlp/models/segmenter/chinese/ctb.gz",
+                "ner.model","edu/stanford/nlp/models/ner/chinese.misc.distsim.crf.ser.gz",
+                "segment.model", "newmodel.ser.gz",
+               // "segment.model", "edu/stanford/nlp/models/segmenter/chinese/ctb.gz",
                 "segment.sighanCorporaDict", "edu/stanford/nlp/models/segmenter/chinese",
-                "segment.serDictionary", "edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz,data/prpall.txt",
+                "segment.serDictionary", "edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz",
                 "segment.sighanPostProcessing", "true"
         ));
 		Annotation annotation = new Annotation(text);

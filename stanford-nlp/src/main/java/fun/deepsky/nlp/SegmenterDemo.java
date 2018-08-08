@@ -25,10 +25,8 @@ public class SegmenterDemo {
 		System.setOut(new PrintStream(System.out, true, "utf-8"));
 		Properties props = new Properties();
 		props.setProperty("sighanCorporaDict", "edu/stanford/nlp/models/segmenter/chinese");
-		props.setProperty("serDictionary", "edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz,data/prpall.txt");
-		if (args.length > 0) {
-			props.setProperty("testFile", args[0]);
-		}
+		//props.setProperty("serDictionary", "edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz,data/prpall.txt");
+		props.setProperty("serDictionary", "edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz");
 		props.setProperty("inputEncoding", "UTF-8");
 		props.setProperty("sighanPostProcessing", "true");
 		// 设置分词器

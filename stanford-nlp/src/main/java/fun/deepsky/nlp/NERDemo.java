@@ -81,34 +81,35 @@ public class NERDemo {
 	         assignments and an n-best list of classifications with probabilities.
 	      */
 
-	      String[] example = {"北京是中国的首都。" };
+	      String[] example = {"张三 车牌号 京A01933 投保 三者险 100万 车损险 200万 不计免赔" };
+	      System.out.println("---default---");
 	      for (String str : example) {
 	        System.out.println(classifier.classifyToString(str));
 	      }
-	      System.out.println("---");
+	      System.out.println("---slashTags---");
 
 	      for (String str : example) {
 	        // This one puts in spaces and newlines between tokens, so just print not println.
 	        System.out.print(classifier.classifyToString(str, "slashTags", false));
 	      }
-	      System.out.println("---");
+	      System.out.println("---tabbedEntities---");
 
 	      for (String str : example) {
 	        // This one is best for dealing with the output as a TSV (tab-separated column) file.
 	        // The first column gives entities, the second their classes, and the third the remaining text in a document
 	        System.out.print(classifier.classifyToString(str, "tabbedEntities", false));
 	      }
-	      System.out.println("---");
+	      System.out.println("---InlineXML---");
 
 	      for (String str : example) {
 	        System.out.println(classifier.classifyWithInlineXML(str));
 	      }
-	      System.out.println("---");
+	      System.out.println("---xml---");
 
 	      for (String str : example) {
 	        System.out.println(classifier.classifyToString(str, "xml", true));
 	      }
-	      System.out.println("---");
+	      System.out.println("---tsv---");
 
 	      for (String str : example) {
 	        System.out.print(classifier.classifyToString(str, "tsv", false));

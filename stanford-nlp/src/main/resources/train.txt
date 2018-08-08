@@ -1,0 +1,19 @@
+1.准备训练文件 segmentor_train.txt，内容用 空格分开：
+张三 手机号 15810987136 车牌号 京AK1292 投保 三者险 100万 车损险 200。
+投保人 梁东倩 手机号 13810192821 新车 车牌号 京L19323 投保 盗抢险 1000万
+2.Eclipse Run 参数：
+
+Main Class:
+edu.stanford.nlp.ie.crf.CRFClassifier
+
+
+-prop edu/stanford/nlp/models/segmenter/chinese/ctb.prop 
+-setDictionary edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz 
+-sighanCorporaDict edu/stanford/nlp/models/segmenter/chinese
+-trainFile src/main/resources/segmentor_train.txt 
+-serializeTo src/main/resources/newmodel.ser.gz
+-serializeToText src/main/resources/serializeToText.zip
+
+3.vm arg设置
+-Xmx2g
+
