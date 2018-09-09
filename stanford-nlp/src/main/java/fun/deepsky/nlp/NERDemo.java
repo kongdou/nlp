@@ -81,7 +81,7 @@ public class NERDemo {
 	         assignments and an n-best list of classifications with probabilities.
 	      */
 
-	      String[] example = {"张三 车牌号 京A01933 投保 三者险 100万 车损险 200万 不计免赔" };
+	      String[] example = {"张三的车牌号京A01933投保了三者险100万车损险200万不计免赔" };
 	      System.out.println("---default---");
 	      for (String str : example) {
 	        System.out.println(classifier.classifyToString(str));

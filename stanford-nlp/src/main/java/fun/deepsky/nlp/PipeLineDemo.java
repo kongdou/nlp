@@ -18,7 +18,7 @@ public class PipeLineDemo {
 
 	public static void main(String[] args) {
 		
-		String text = "赵晓杰投保了三者险100万，车损险200万,不计免赔";
+		String text = "赵晓杰投保了三者险一百万，车损险200万,不计免赔，五千三百八十五";
 		
 		//使用默认配置
 		//StanfordCoreNLP pipeline = new StanfordCoreNLP("CoreNLP-chinese.properties");
